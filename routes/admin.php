@@ -9,5 +9,9 @@ Route::post('login', 'AdminAuthController@postLogin')->name('adminLoginPost');
 Route::get('logout', 'AdminAuthController@logout')->name('adminLogout');
 
 
-// authenticated routes 	
-Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+// authenticated routes 
+Route::group(['middleware' => 'adminauth'], function () {
+
+Route::get('dashboard', [AdminController::class, 'dashboard'])->name('adminDashboard');
+
+});
