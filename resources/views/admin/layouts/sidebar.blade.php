@@ -28,7 +28,7 @@
                         </a>
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item">
-                        <a href="html/general/index-analytics.html" class="nk-menu-link">
+                        <a href="{{ route('cities.index')}}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-growth"></em></span>
                             <span class="nk-menu-text">Cities</span>
                         </a>
