@@ -50,8 +50,8 @@ class ReservationController extends Controller
             $reservation = SeatReservation::create([
                 'seat_id' => $seat->id,
                 'user_id' => auth()->user()->id,
-                'from_station' => $request->from_station, // from_station is station number not city id 
-                'to_station' => $request->to_station, // to_station is station number not city id 
+                'from_station' => $from_station_number, // from_station is station number not city id 
+                'to_station' => $to_station_number, // to_station is station number not city id 
             ]);
 
             return response()->json([

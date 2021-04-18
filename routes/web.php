@@ -17,7 +17,7 @@ Route::get('/', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function () {
 
-Route::get('trip/{id}/reserve','HomeController@reserve');
-Route::post('trip/{id}/reserve','HomeController@post_reserve');
+Route::get('trip/{id}/reserve','BookingController@reserve');
+Route::post('trip/{id}/reserve','BookingController@post_reserve');
 Route::get('/home','HomeController@home');
 });
