@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Trip;
 use App\Models\City;
 use App\Models\Seat;
-use Validator;
 use Session;
 
 class TripController extends Controller
@@ -30,14 +29,12 @@ class TripController extends Controller
     
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'from_station' => 'required',
             'to_station' => 'required',
             'stations' => 'required',
         ]); 
-        if ($validator->fails()) { 
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+        
         $trip = new Trip;
         $trip->save();
 
