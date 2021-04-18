@@ -17,12 +17,12 @@ Password : 12345678
 ## Apis 
 there are 3 apis 
 ### 1 - Login Api
-method:post 
-url : /api/login
-body :
+#### method:post 
+#### url : /api/login
+#### body :
     email
     password
-response :
+#### response :
 "token" : brearer token 
 
 ### 2 - get all available seats 
