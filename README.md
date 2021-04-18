@@ -34,16 +34,16 @@ there are 3 apis
 "data" : all available seats
 
 ### 3 - book seat if available 
-method : post 
-url : /api/book_seat
-header :
+#### method : post 
+#### url : /api/book_seat
+#### header :
     authorization : "bearer + token"
-body :
+#### body :
 tripe_id :integer
 from_station : integer
 to_station : integer
 
-response:
+#### response:
 "success": true,
  "seat_id": 26,
  "message": "seat Booked Successfully"
