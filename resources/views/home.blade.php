@@ -32,7 +32,10 @@
                             </tr>
                           @empty
                               <tr>
-                                  <td colspan="4">no trips available</td>
+                                  <td colspan="4">no trips available
+                                      <br>
+                                      <a href="{{ url('/') }}" class="btn btn-primary">Browse Trips</a>
+                                  </td>
                               </tr>
                           @endforelse
                       </tbody>
