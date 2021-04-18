@@ -66,7 +66,8 @@ class TripController extends Controller
     
     public function show($id)
     {
-        //
+        $trip = Trip::with('seats')->with('cities')->findOrFail($id);
+        return view('admin.trips.details',compact('trip'));
     }
 
     

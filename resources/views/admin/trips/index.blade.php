@@ -70,6 +70,7 @@
                                                 <span class="tb-lead"><a href="#">{{ $trip->date }}</a></span>
                                             </div>
                                             <div class="nk-tb-col tb-col-md">
+                                                <a href="{{ route('trips.show',$trip->id) }}" class="btn btn-success" >Details</a>
                                                 {{-- <button type="button" id="EditBtn" data-trip="{{ $trip->id }}" data-text="{{ $trip->from_to}}" class="btn btn-warning" >Update</button> --}}
                                                 <button type="button" id="deleteBtn" data-trip="{{ $trip->id }}"  class="btn btn-danger" >Delete</button>
                                             </div>

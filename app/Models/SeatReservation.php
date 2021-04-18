@@ -14,4 +14,9 @@ class SeatReservation extends Model
     {
         return $this->belongsTo('App\Models\Seat');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
