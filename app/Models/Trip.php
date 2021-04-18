@@ -15,8 +15,10 @@ class Trip extends Model
             ->withPivot('number');
     }
 
-    public function from()
+    public function seats()
     {
-        return $this->cities->toArray();
+        return $this->hasMany('App\Models\Seat');
     }
+
+    
 }

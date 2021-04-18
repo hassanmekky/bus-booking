@@ -13,8 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
-Route::view('/home','home');
+Route::group(['middleware' => 'auth'], function () {
+
+Route::get('trip/{id}/reserve','HomeController@reserve');
+Route::post('trip/{id}/reserve','HomeController@post_reserve');
+Route::get('/home','HomeController@home');
+});
