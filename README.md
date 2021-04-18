@@ -5,6 +5,8 @@ Bus Booking task build with laravel 8.X and php 8
 
 i used docker for development you can run it with configuration at include docker file docker-compose.yml
 
+
+
 ## Admin Panel 
 you can access admin  panel with route /admin/dashboard
 and the login route is /admin/login
@@ -13,6 +15,13 @@ and the login route is /admin/login
 
 Email : admin@bus-booking.com
 Password : 12345678
+
+## User login 
+/login
+## user register 
+/register
+## home page 
+show all available trips
 
 ## Apis 
 there are 3 apis 
