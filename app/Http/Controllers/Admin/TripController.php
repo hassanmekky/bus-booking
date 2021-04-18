@@ -8,7 +8,7 @@ use App\Models\Trip;
 use App\Models\City;
 use App\Models\Seat;
 use Session;
-
+use DB;
 class TripController extends Controller
 {
     
@@ -34,27 +34,29 @@ class TripController extends Controller
             'to_station' => 'required',
             'stations' => 'required',
         ]); 
-        
-        $trip = new Trip;
-        $trip->save();
-
-        $number = 1;
-        $trip->cities()->attach($request->from_station,['number' => $number]);
-        $number++;
-        foreach($request->stations as $station)
+        DB::transaction(function() use ($request)
         {
-            $trip->cities()->attach($station,['number' => $number]);
+            $trip = new Trip;
+            $trip->save();
+
+            $number = 1;
+            $trip->cities()->attach($request->from_station,['number' => $number]);
             $number++;
-        }
-        $trip->cities()->attach($request->to_station,['number' => $number]);
+            foreach($request->stations as $station)
+            {
+                $trip->cities()->attach($station,['number' => $number]);
+                $number++;
+            }
+            $trip->cities()->attach($request->to_station,['number' => $number]);
 
-        // add seats
-        for($i = 0; $i < 12 ; $i++)
-        {
-            $seat = new Seat;
-            $seat->trip_id = $trip->id;
-            $seat->save();
-        }
+            // add seats
+            for($i = 0; $i < 12 ; $i++)
+            {
+                $seat = new Seat;
+                $seat->trip_id = $trip->id;
+                $seat->save();
+            }
+        });
 
         Session::flash('message', 'Trip Added successfully');        
         return back();
