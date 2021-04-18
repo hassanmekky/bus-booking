@@ -9,7 +9,7 @@ i used docker for development you can run it with configuration at include docke
 you can access admin  panel with route /admin/dashboard
 and the login route is /admin/login
 
-admin credentials that exist at dump database is 
+### admin credentials that exist at dump database is 
 
 Email : admin@bus-booking.com
 Password : 12345678
@@ -26,10 +26,10 @@ there are 3 apis
 "token" : brearer token 
 
 ### 2 - get all available seats 
-method : get 
-url : /api/available_seats?trip_id=7&from_station=1&to_station=4
+#### method : get 
+#### url : /api/available_seats?trip_id=7&from_station=1&to_station=4
 
-response :
+#### response :
 "success": true,
 "data" : all available seats
 
